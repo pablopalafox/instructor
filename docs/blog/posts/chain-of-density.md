@@ -8,7 +8,7 @@ tags:
   - chain of density
   - finetuneing
   - gpt-3.5-turbo
-  - distilation
+  - distillation
 authors:
   - ivanleomk
   - jxnl
@@ -212,7 +212,7 @@ class RewrittenSummary(BaseModel):
 
     For a more in-depth walkthrough on how to use `Pydantic` validators with the `Instructor`
     library, we recommend checking out our previous article on LLM
-    validation - [Good LLM Validation is just Good Validation](/instructor/blog/2023/10/23/good-llm-validation-is-just-good-validation/)
+    validation - [Good LLM Validation is just Good Validation](../posts/validation-part1.md)
 
 Ideally, we'd like for `Missing` to have a length between 1 and 3, `Absent` to be an empty list and for our rewritten summaries to keep a minimum entity density. With `Instructor`, we can implement this logic using native `Pydantic` validators that are simply declared as part of the class itself.
 
@@ -470,7 +470,7 @@ instructor jobs create-from-file generated.jsonl
 
 ??? notes "Finetuning Reference"
 
-    Checking out our [Finetuning CLI](/instructor/cli/finetune/) to learn about other hyperparameters that you can tune to improve your model's performance.
+    Checking out our [Finetuning CLI](../../cli/finetune.md) to learn about other hyperparameters that you can tune to improve your model's performance.
 
 Once the job is complete, all we need to do is to then change the annotation in the function call to `distil_summarization` in our original file above to start using our new model.
 
@@ -488,7 +488,7 @@ With that, you've now got your own fine-tuned model ready to go and serve data i
 
 ## Results and Benchmarks
 
-We'l be comparing the following models in 3 ways using 20 articles that were not used for fine-tuning.
+We'll be comparing the following models in 3 ways using 20 articles that were not used for fine-tuning.
 
 - Entity Density : This is entities per token, the higher the better for density.
 - Latency : Time to last token generated in seconds
@@ -540,4 +540,4 @@ Interestingly, the model finetuned with the least examples seems to outperform t
 
 Finetuning this iterative method was 20-40x faster while improving overall performance, resulting in massive efficiency gains by finetuning and distilling capabilities into specialized models.
 
-We've seen how `Instructor` can make your life easier, from data modeling to distilation and finetuning. If you enjoy the content or want to try out `instructor` check out the [github](https://github.com/jxnl/instructor) and don't forget to give us a star!
+We've seen how `Instructor` can make your life easier, from data modeling to distillation and finetuning. If you enjoy the content or want to try out `instructor` check out the [github](https://github.com/jxnl/instructor) and don't forget to give us a star!
